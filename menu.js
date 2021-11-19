@@ -91,23 +91,13 @@ window.addEventListener("DOMContentLoaded", function () {
 function displayMenuItems(menuItems) {
     let displayMenu = menuItems.map(function (item) {
         return `<article class="menu-item">
-        <img src=${
-            item.img
-        } class="photo" alt=${
-            item.title
-        }>
+        <img src=${item.img} class="photo" alt=${item.title}>
         <div class="item-info">
             <header>
-                <h4>${
-            item.title
-        }</h4>
-                <h4 class="price">$${
-            item.price
-        }</h4>
+                <h4>${item.title}</h4>
+                <h4 class="price">$${item.price}</h4>
             </header>
-            <p class="item-text">${
-            item.desc
-        }</p>
+            <p class="item-text">${item.desc}</p>
         </div>
     </article>`;
     })
@@ -117,11 +107,11 @@ function displayMenuItems(menuItems) {
 
 
 function displayMenuButtons() {
-    const categories = menu.reduce(function (values, item) {
-        if (! values.includes(item.category)) {
-            values.push(item.category);
+    const categories = menu.reduce(function (valuesArray, item) {
+        if (! valuesArray.includes(item.category)) {
+            valuesArray.push(item.category);
         }
-        return values;
+        return valuesArray;
     }, ['all']);
     const categoryBtns = categories.map(function (category) {
         return `<button class="filter-btn" type="button" data-id="${category}">${category}</button>`;
